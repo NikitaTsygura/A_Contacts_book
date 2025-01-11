@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from app import views  # Импортируй views из твоего приложения "app"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', views.index, name='index'),  # Маршрут для главной страницы
 ]
