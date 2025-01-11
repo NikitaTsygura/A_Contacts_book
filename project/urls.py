@@ -17,8 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app import views  # Импортируй views из твоего приложения "app"
+#from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),  # Маршрут для главной страницы
+    path('', views.index, name='index'),# Маршрут для главной страницы
+    path('', views.contact_list, name='contact_list'),
 ]
