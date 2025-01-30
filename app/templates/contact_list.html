@@ -2,10 +2,59 @@
 {% block title %}Add/Change Contact's Book{% endblock %}
 
 {% block content %}
-    <h1>{% if contact %}Change{% else %}NEw{% endif %} contacy</h1>
-    <form method="post" enctype="multipart/form-data">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit" class="custom-button">Save</button>
-    </form>
+  <div class="table_contacts">
+      <h2 class="text-center"><Contacts/h2>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Photo</th>
+          <th scope="col">Name</th>
+            <th scope="col">LastName</th>
+          <th scope="col">Phone number</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for contact in contacts %}
+        <tr>
+            <td>
+                {% if contact.photo %}
+                <img src="{{ contact.photo.url }}" alt="Contacts`s photo" width="50">
+                {% else %}
+                <img src="/media/icon.png" alt="photo" width="50">
+                {% endif %}
+            </td>
+            <td>{{ contact.last_name }}</td>
+            <td>{{ contact.first_name }}</td>
+            <td>{{ contact.phone_number }}</td>
+            <td>{{ contact.email }}</td>
+        </tr>
+        {% endfor %}
+<!--        <tr>-->
+<!--          <td>1</td>-->
+<!--          <td>Photo</td>-->
+<!--          <td>John</td>-->
+<!--          <td>Doe</td>-->
+<!--          <td>123-456-7890</td>-->
+<!--          <td>john.doe@example.com</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--          <td>2</td>-->
+<!--          <td>Photo</td>-->
+<!--          <td>Max</td>-->
+<!--          <td>Farell</td>-->
+<!--          <td>454-485-8596</td>-->
+<!--          <td>max.farell@example.com</td>-->
+<!--        </tr>-->
+<!--        <tr>-->
+<!--            <td>3</td>-->
+<!--          <td>Photo</td>-->
+<!--          <td>Julia</td>-->
+<!--          <td>Simson</td>-->
+<!--          <td>478-596-1259</td>-->
+<!--          <td>julia.simson@example.com</td>-->
+<!--        </tr>-->
+<!--      </tbody>-->
+<!--    </table>-->
+<!--  </div>-->
 {% endblock%}
