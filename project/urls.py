@@ -21,6 +21,6 @@ from app import views  # Импортируй views из твоего прило
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index, name='index'),# Маршрут для главной страницы
+    # path('', views.index, name='index'),# Маршрут для главной страницы
     path('', views.contact_list, name='contact_list'),
 ]
