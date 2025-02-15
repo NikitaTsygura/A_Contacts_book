@@ -1,0 +1,174 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: #f5f5f5;
+  font-family: Arial, sans-serif;
+}
+
+.header {
+  text-align: center;
+  margin: 20px;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.search-box {
+  width: 90%;
+  max-width: 400px;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-box input {
+  margin-right: 10px;
+  padding: 10px;
+  width: 100%;
+}
+
+/* Custom design for Search button */
+.search-button {
+  background-color: white;
+  color: black;
+  border: 2px solid black;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.search-button:hover {
+  background-color: black;
+  color: white;
+  border-color: white;
+}
+
+.search-button:active {
+  transform: scale(0.95);
+}
+
+.custom-button {
+  background: linear-gradient(45deg, #ff6f61, #ff8e53);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.custom-button:hover {
+  background: linear-gradient(45deg, #ff8e53, #ff6f61);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+.custom-button:active {
+  transform: scale(0.95);
+}
+
+.custom-button i {
+  transition: transform 0.3s ease;
+}
+
+.custom-button:hover i {
+  transform: scale(1.2);
+}
+
+.table_contacts {
+  width: 90%;
+  margin: 20px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th {
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  color: white;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+tr:hover {
+  background-color: #f1f1f1;
+}
+
+
+
+
+body_design {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background: #f5f5f5; /* Neutral light background */
+    font-family: Arial, sans-serif;
+}
+
+.custom-button {
+    background: linear-gradient(45deg, #ff6f61, #ff8e53); /* Gradient from pink to orange */
+    border: none; /* Removing borders */
+    border-radius: 8px; /* Slight rounding */
+    color: white; /* White text */
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 24px; /* Spacious button */
+    cursor: pointer;
+    transition: all 0.3s ease; /* Smooth transition for effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Light shadow */
+}
+
+.custom-button:hover {
+    background: linear-gradient(45deg, #ff8e53, #ff6f61); /* reverse gradient on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+}
+
+.custom-button:active {
+    transform: scale(0.95); /* Easy to press to decrease */
+}
+
+
+
+
+  table_contacts{
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+  thead {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+  }
+  tbody {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+

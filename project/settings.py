@@ -117,10 +117,10 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'app/static/'
 #STATICFILES_DIRS = [os.path.join(BASE_DIR, "../app/static")]  # Это путь к папке static
 
-MEDIA_URL = '/media/'
+MEDIA_URL = 'app/media/'
 #MEDIA_ROOT = [os.path.join(BASE_DIR, "../app/media")]  # Это путь к папке static
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field

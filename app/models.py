@@ -7,7 +7,7 @@ class Contact(models.Model):
      phone_number = models.CharField(max_length=5)
      email = models.EmailField()
      photo = models.ImageField(upload_to='contacts_photo/', blank=True, null=True)
-     object= models.Manager()
+     # object= models.Manager()
 
      def __str__(self):
          return f"{self.first_name} {self.last_name}"
