@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+    <title>New Contact</title>
+
+    <style>
+        .container {
+            display: flex;
+            align-items: center; /* Выравнивание по вертикали */
+        }
+
+        .text {
+            font-size: 26px;
+            color: #000;
+            margin-right: 10px; /* Отступ между текстом и полем ввода */
+        }
+
+        textarea {
+            width: 200px;
+            height: 20px;
+            border: 1px solid #000;
+            font-size: 16px;
+            padding: 5px;
+            resize: none;
+        }
+
+          .create-button:hover {
+            background-color: black;
+            color: white;
+            border-color: white;
+          }
+
+          .create-button:active {
+            transform: scale(0.95);
+          }
+
+        .create-button {
+          background-color: white;
+          color: black;
+          border: 2px solid black;
+          padding: 10px 20px;
+          font-size: 16px;
+          font-weight: bold;
+          cursor: pointer;
+          transition: all 0.3s ease;
+        }
+    </style>
+
+<body>
+    <h1>New Contact</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="container">
+            <div class="text">Name:</div>
+            <textarea name="name" placeholder="name..."></textarea>
+        </div>
+
+        <div class="container">
+            <div class="text">Last name:</div>
+            <textarea name="last_name" placeholder="last name..."></textarea>
+        </div>
+
+        <div class="container">
+            <div class="text">Phone number:</div>
+            <textarea name="phone" placeholder="phone number..."></textarea>
+        </div>
+
+        <div class="container">
+            <div class="text">Email:</div>
+            <textarea name="email" placeholder="email..."></textarea>
+        </div>
+
+        <button type="submit" class="create-button">Create contact</button>
+    </form>
+</body>

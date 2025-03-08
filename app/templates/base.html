@@ -7,7 +7,6 @@
     <title>{% block title %}Contact's Book{% endblock %}</title>
 <!--    <link rel="stylesheet" href="/static/css/design_of_button_5_gradient.css">-->
     <link href="{% static 'css/styles.css' %}" rel="stylesheet">
-    <link href="{% static 'css/design.html' %}" rel="stylesheet">
   <link rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
 </head>
@@ -48,9 +47,14 @@
   <!-- Buttons -->
   <div class="d-flex justify-content-around mb-4 w-100">
     <!-- New Contact -->
-    <button class="custom-button">
+<!--    <button href="{% url 'add_contact' %}" class="custom-button">-->
+<!--      <i class="bi bi-person-plus-fill"></i> New Contact-->
+<!--    </button>-->
+
+    <a href="{% url 'new_contact' %}" class="custom-button">
       <i class="bi bi-person-plus-fill"></i> New Contact
-    </button>
+    </a>
+
 
     <!-- Edit Contact -->
     <button class="custom-button">

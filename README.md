@@ -1,61 +1,63 @@
-# template_django
-template for djando start project.
-
-
-1. Обрати розміщення для проєкту (тека- папка (директорії))
-    
-    `D:` - перейти на обраний диск.
-
-    `cd <розьіщення/нізва теки>` - зайти до дерикторії.
-
-    `cd..` - вийті до попередньої директорії
-
-    `dir` - показати вміст поточної теки
-
-
-2. Створити теку
-    ```bash
-   md 'Назва_теки'
-   ```
-3. Клонувати
-    ```bash
-    git clone "https://github.com/NikitaTsygura/template_django.git"
-    ```
-
-4. Віртуальне середовище 
-- створити/підключити віртуальне середовице `.venv` підключити існуюче
-    ```bash
-  # створення віртуального середовища
-    python -m venv .venv
-    ```
-- Активація віртуально середовища
-```bash
-# Windows
-.venv\Scripts\activate
-```
-```bash
-#Linux & MacOS
-.venv\bin\activate
-```
-
-5. Встановлення необхідних модулей
-```bash
-pip istall requests.txt
-```
+<h1 id="top">Contact's Book</h1>
+<b>by Nikita Tsygura</b>
 <hr>
 
-6. Створення нового проєкту Django
-```bash
-#django-admin startproject <найменування_сайту> .
+<h2>Navigation</h2>
+- [Top](#top)
+- [About project](#about)
+- [New Contact (button)](#new)
+- [Edit Contact (button)](#edit)
+- [Delete Contact (button)](#delete)
+- [About Contact (button)](#About)
+- [Display Contact (button)](#display)
+- [Front page](#frontpage)
 
-django-admin startproject project .
-```
-```bash
-# python manage.py startapp <назва_додатку>
-
-python manage.py startapp app
-```
 <hr>
-<b>Увага:</b>
+<h2 id="about">About project</h2>
+I maked this project for help with contacts, in laptop/PC. This server can show for you your contacts, what you added. But like always, you can add new contact, edit contact, delete contact, about contact, display contact. 
+Down on page you can find more information about each function.
+<hr>
 
-Шаблони для додатку app, додаються в папці templates. Якщо додаються додаткові додатки, там створюються так само папка templates.
+<h2 id="new"> New Contact (button)</h2>
+By pressing this button, you can add new contact.
+You will need insert name, surname, phone number, email and photo of person.
+<hr>
+
+<h2 id="edit"> Edit Contact (button)</h2>
+By pressing this button, you can edit "old" contact.
+You can edit name, surname, phone number, email and photo of person.
+<hr>
+
+<h2 id="delete"> Delete Contact (button)</h2>
+By pressing this button, you can delete "old" contact.
+You can delete contact of person.
+<hr>
+
+<h2 id="About"> About Contact (button)</h2>
+By pressing this button, you can see information about contact.
+You can see name, surname, phone number, email, photo and extra information of person.
+<hr>
+
+<h2 id="display"> Display Contact (button)</h2>
+
+<hr>
+
+<h2 id="frontpage">Front page</h2>
+On the front or main page you can find:
+<ul>
+   <li>Title "Contact's book"</li>
+   <li>Searching line (For searching contact)</li>
+   <li>5 buttons</li>
+   <li>Table with contacts</li>
+</ul>
+<hr>
+
+<h2>Navigation</h2>
+- [Top](#top)
+- [About project](#about)
+- [New Contact (button)](#new)
+- [Edit Contact (button)](#edit)
+- [Delete Contact (button)](#delete)
+- [About Contact (button)](#About)
+- [Display Contact (button)](#display)
+- [Front page](#frontpage)

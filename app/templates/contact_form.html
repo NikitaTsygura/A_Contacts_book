@@ -1,40 +1,66 @@
-{% extends 'base.html'%}
-{% block title %}Contact's Book List{% endblock %}
+<!--{% extends 'base.html'%}-->
+<!--{% block title %}Contact's Book List{% endblock %}-->
 
-{% block content %}
-        <!-- Left section: Contacts Table -->
-        <div class="contacts-table">
-            <h2 class="text-center">Contacts</h2>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th scope="col">Name</th>
-                        <th scope="col">Phone</th>
-                        <th scope="col">Email</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>John Doe</td>
-                        <td>+123456789</td>
-                        <td>johndoe@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>Jane Smith</td>
-                        <td>+987654321</td>
-                        <td>janesmith@example.com</td>
-                    </tr>
-                    <!-- Add more rows as needed -->
-                </tbody>
-            </table>
-        </div>
+<!--{% block content %}-->
+<!--        &lt;!&ndash; Left section: Contacts Table &ndash;&gt;-->
+<!--        <div class="contacts-table">-->
+<!--            <h2 class="text-center">Contacts</h2>-->
+<!--            <table class="table table-striped">-->
+<!--                <thead>-->
+<!--                    <tr>-->
+<!--                        <th scope="col">Name</th>-->
+<!--                        <th scope="col">Phone</th>-->
+<!--                        <th scope="col">Email</th>-->
+<!--                    </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                    <tr>-->
+<!--                        <td>John Doe</td>-->
+<!--                        <td>+123456789</td>-->
+<!--                        <td>johndoe@example.com</td>-->
+<!--                    </tr>-->
+<!--                    <tr>-->
+<!--                        <td>Jane Smith</td>-->
+<!--                        <td>+987654321</td>-->
+<!--                        <td>janesmith@example.com</td>-->
+<!--                    </tr>-->
+<!--                    &lt;!&ndash; Add more rows as needed &ndash;&gt;-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
 
-        <!-- Right section: Action Buttons -->
-        <div class="action-buttons">
-            <a href="#" class="btn btn-primary">New Contact</a>
-            <a href="#" class="btn btn-secondary">Edit Contact</a>
-            <a href="#" class="btn btn-danger">Delete Contact</a>
-            <a href="#" class="btn btn-info">About Contact</a>
-            <a href="#" class="btn btn-success">Display</a>
-        </div>
-{% endblock%}
+<!--        &lt;!&ndash; Right section: Action Buttons &ndash;&gt;-->
+<!--        <div class="action-buttons">-->
+<!--            <a href="#" class="btn btn-primary">New Contact</a>-->
+<!--            <a href="#" class="btn btn-secondary">Edit Contact</a>-->
+<!--            <a href="#" class="btn btn-danger">Delete Contact</a>-->
+<!--            <a href="#" class="btn btn-info">About Contact</a>-->
+<!--            <a href="#" class="btn btn-success">Display</a>-->
+<!--        </div>-->
+<!--{% endblock%}-->
+
+<form method="POST">
+    {% csrf_token %}
+
+    <div class="container">
+        <label for="first_name">First Name:</label>
+        <input type="text" name="first_name" id="first_name" required>
+    </div>
+
+    <div class="container">
+        <label for="last_name">Last Name:</label>
+        <input type="text" name="last_name" id="last_name" required>
+    </div>
+
+    <div class="container">
+        <label for="phone_number">Phone Number:</label>
+        <input type="text" name="phone_number" id="phone_number" required>
+    </div>
+
+    <div class="container">
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required>
+    </div>
+
+    <button type="submit">Create Contact</button>
+</form>
