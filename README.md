@@ -20,22 +20,22 @@ Down on page you can find more information about each function.
 
 <h2 id="new"> New Contact (button)</h2>
 By pressing this button, you can add new contact.
-You will need insert name, surname, phone number, email and photo of person.
+You will see boxes with where you will need insert name, surname, phone number, email and photo of person.
 <hr>
 
 <h2 id="edit"> Edit Contact (button)</h2>
 By pressing this button, you can edit "old" contact.
-You can edit name, surname, phone number, email and photo of person.
+You will see a table whe you will choose the contact, which you can edit name, surname, phone number, email and photo of person.
 <hr>
 
 <h2 id="delete"> Delete Contact (button)</h2>
 By pressing this button, you can delete "old" contact.
-You can delete contact of person.
+You You will see a table whe you will choose the contact, which you can delete contact of person.
 <hr>
 
 <h2 id="About"> About Contact (button)</h2>
 By pressing this button, you can see information about contact.
-You can see name, surname, phone number, email, photo and extra information of person.
+You You will see a table whe you will choose the contact, which you can see name, surname, phone number, email, photo and extra information of person.
 <hr>
 
 <h2 id="display"> Display Contact (button)</h2>
