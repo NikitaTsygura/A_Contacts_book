@@ -118,11 +118,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'app/static/'
-#STATICFILES_DIRS = [os.path.join(BASE_DIR, "../app/static")]  # Это путь к папке static
+# STATICFILES_DIRS = [os.path.join(BASE_DIR, "../app/media")]  # Это путь к папке static
 
 MEDIA_URL = 'app/media/'
-#MEDIA_ROOT = [os.path.join(BASE_DIR, "../app/media")]  # Это путь к папке static
-# Default primary key field type
+MEDIA_ROOT = [os.path.join(BASE_DIR, "app/media")]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

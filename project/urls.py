@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from app import views  # Импортируй views из твоего приложения "app"
+from django.conf import settings
+from django.conf.urls.static import static
 #from . import views
 
 urlpatterns = [
@@ -26,4 +28,7 @@ urlpatterns = [
     path("add/", views.add_contact, name="add_contact"),
     path('', views.base, name='home'),  # главная страница
     path('new_contact/', views.new_contact, name='new_contact'),
+    # path('about/<int:contact_id>/', views.about_contact, name='about_contact_detail'),
 ]
+
+urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -37,14 +37,38 @@
 <!-- contact_list.html -->
 <h1>Contact List</h1>
 
-{% if contacts %}
-    <ul>
-        {% for contact in contacts %}
-            <li>{{ contact.first_name }} {{ contact.last_name }} - {{ contact.phone_number }} - {{ contact.email }}</li>
-        {% endfor %}
-    </ul>
-{% else %}
-    <p>No contacts available.</p>
+<!--{% if contacts %}-->
+<!--    <ul>-->
+<!--        {% for contact in contacts %}-->
+<!--            <li>{{ contact.first_name }} {{ contact.last_name }} - {{ contact.phone_number }} - {{ contact.email }}</li>-->
+<!--        {% endfor %}-->
+<!--    </ul>-->
+<!--{% else %}-->
+<!--    <p>No contacts available.</p>-->
+<!--{% endif %}-->
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+    {% for contact in contacts %}
+    <tr>
+        <td><a href="{% url 'about_contact_detail' contact.id %}">{{ contact.name }}</a></td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.phone }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if selected_contact %}
+<div>
+    <h2>Contact Details</h2>
+    <p><strong>Name:</strong> {{ selected_contact.name }}</p>
+    <p><strong>Email:</strong> {{ selected_contact.email }}</p>
+    <p><strong>Phone:</strong> {{ selected_contact.phone }}</p>
+</div>
 {% endif %}
+
 
 <a href="{% url 'add_contact' %}">Add a New Contact</a>
