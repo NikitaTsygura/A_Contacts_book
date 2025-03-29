@@ -54,15 +54,15 @@
     <h1>New Contact</h1>
     <form method="POST">
         {% csrf_token %}
-        <div class="container">
-            <div class="text">Name:</div>
-            <textarea name="name" placeholder="name..."></textarea>
-        </div>
+            <div>
+                <lable for="name">Name:</lable>
+                <input type="text" id="first_name">
+            </div>
 
-        <div class="container">
-            <div class="text">Last name:</div>
-            <textarea name="last_name" placeholder="last name..."></textarea>
-        </div>
+            <div>
+                <lable for="name">Last Name:</lable>
+                <input type="text" id="last_name">
+            </div>
 
         <div class="container">
             <div class="text">Phone number:</div>
@@ -73,6 +73,13 @@
             <div class="text">Email:</div>
             <textarea name="email" placeholder="email..."></textarea>
         </div>
+
+        <div class="container">
+            <div class="text">Photo:</div>
+            <input type="file" name="photo" accept="image/*">
+        </div>
+
+
 
         <button type="submit" class="create-button">Create contact</button>
     </form>

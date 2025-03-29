@@ -26,9 +26,9 @@ urlpatterns = [
     # path('', views.index, name='base'),# Маршрут для главной страницы
     path('', views.contact_list, name='contact_list'),
     path("add/", views.add_contact, name="add_contact"),
-    path('', views.base, name='home'),  # главная страница
-    path('new_contact/', views.new_contact, name='new_contact'),
+    # path('', views.base, name='home'),  # главная страница
+    # path('new_contact/', views.new_contact, name='new_contact'),
     # path('about/<int:contact_id>/', views.about_contact, name='about_contact_detail'),
 ]
 
-urlpatterns +=static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

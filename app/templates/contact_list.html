@@ -33,42 +33,94 @@
 
 <!--{% endblock%}-->
 
-
+<!--/////////////////////////-->
 <!-- contact_list.html -->
-<h1>Contact List</h1>
+<!--<h1>Contact List</h1>-->
 
-<!--{% if contacts %}-->
-<!--    <ul>-->
-<!--        {% for contact in contacts %}-->
-<!--            <li>{{ contact.first_name }} {{ contact.last_name }} - {{ contact.phone_number }} - {{ contact.email }}</li>-->
-<!--        {% endfor %}-->
-<!--    </ul>-->
-<!--{% else %}-->
-<!--    <p>No contacts available.</p>-->
+<!--&lt;!&ndash;{% if contacts %}&ndash;&gt;-->
+<!--&lt;!&ndash;    <ul>&ndash;&gt;-->
+<!--&lt;!&ndash;        {% for contact in contacts %}&ndash;&gt;-->
+<!--&lt;!&ndash;            <li>{{ contact.first_name }} {{ contact.last_name }} - {{ contact.phone_number }} - {{ contact.email }}</li>&ndash;&gt;-->
+<!--&lt;!&ndash;        {% endfor %}&ndash;&gt;-->
+<!--&lt;!&ndash;    </ul>&ndash;&gt;-->
+<!--&lt;!&ndash;{% else %}&ndash;&gt;-->
+<!--&lt;!&ndash;    <p>No contacts available.</p>&ndash;&gt;-->
+<!--&lt;!&ndash;{% endif %}&ndash;&gt;-->
+<!--<table>-->
+<!--    <tr>-->
+<!--        <th>Name</th>-->
+<!--        <th>Email</th>-->
+<!--        <th>Phone</th>-->
+<!--    </tr>-->
+<!--    {% for contact in contacts %}-->
+<!--    <tr>-->
+<!--        <td><a href="{% url 'about_contact_detail' contact.id %}">{{ contact.name }}</a></td>-->
+<!--        <td>{{ contact.email }}</td>-->
+<!--        <td>{{ contact.phone }}</td>-->
+<!--    </tr>-->
+<!--    {% endfor %}-->
+<!--</table>-->
+
+<!--{% if selected_contact %}-->
+<!--<div>-->
+<!--    <h2>Contact Details</h2>-->
+<!--    <p><strong>Name:</strong> {{ selected_contact.name }}</p>-->
+<!--    <p><strong>Email:</strong> {{ selected_contact.email }}</p>-->
+<!--    <p><strong>Phone:</strong> {{ selected_contact.phone }}</p>-->
+<!--</div>-->
 <!--{% endif %}-->
-<table>
-    <tr>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Phone</th>
-    </tr>
-    {% for contact in contacts %}
-    <tr>
-        <td><a href="{% url 'about_contact_detail' contact.id %}">{{ contact.name }}</a></td>
-        <td>{{ contact.email }}</td>
-        <td>{{ contact.phone }}</td>
-    </tr>
-    {% endfor %}
-</table>
 
-{% if selected_contact %}
-<div>
-    <h2>Contact Details</h2>
-    <p><strong>Name:</strong> {{ selected_contact.name }}</p>
-    <p><strong>Email:</strong> {{ selected_contact.email }}</p>
-    <p><strong>Phone:</strong> {{ selected_contact.phone }}</p>
+
+<!--<a href="{% url 'add_contact' %}">Add a New Contact</a>-->
+<!--////////////////////////////-->
+
+
+{% extends 'base.html' %} <!-- Розширює шаблон base.html, тобто цей шаблон
+наслідує структуру базового -->
+{% block title %}Contact's Book List{% endblock %} <!-- Визначає заголовок
+сторінки, який замінить відповідний блок у base.html -->
+{% block content %} <!-- Початок блоку контенту, який буде вставлений у
+відповідне місце базового шаблону -->
+<!-- Ліва секція: Таблиця контактів -->
+<div class="contacts-table"> <!-- Контейнер для відображення таблиці
+контактів -->
+ <h2 class="text-center">Contacts</h2> <!-- Заголовок таблиці, вирівняний
+по центру -->
+ <table class="table table-striped"> <!-- Таблиця з класами Bootstrap
+(table-striped додає чергування кольорів рядків) -->
+ <thead> <!-- Заголовок таблиці -->
+ <tr> <!-- Рядок заголовків стовпців -->
+ <th scope="col">Photo</th> <!-- Заголовок стовпця для фото -
+->
+ <th scope="col">Lastname</th> <!-- Заголовок стовпця для
+прізвища -->
+ <th scope="col">Name</th> <!-- Заголовок стовпця для імені -
+->
+ <th scope="col">Phone</th> <!-- Заголовок стовпця для
+телефону -->
+ <th scope="col">Email</th> <!-- Заголовок стовпця для
+електронної пошти -->
+ </tr>
+ </thead>
+ <tbody> <!-- Тіло таблиці, де будуть виводитися контакти -->
+ {% for contact in contacts %} <!-- Перебирає список контактів,
+переданий у контекст шаблону -->
+ <tr> <!-- Новий рядок таблиці для кожного контакту -->
+ <td> <!-- Стовпець для фото -->
+ <img src="{{ contact.photo.url }}" alt="Contact`s photo"
+width="50"> <!-- Відображає фото контакту, якщо є -->
+ </td>
+ <td>{{ contact.last_name }}</td> <!-- Відображає прізвище
+контакту -->
+ <td>{{ contact.first_name }}</td> <!-- Відображає ім'я
+контакту -->
+ <td>{{ contact.phone_number }}</td> <!-- Відображає номер
+телефону контакту -->
+ <td>{{ contact.email }}</td> <!-- Відображає email контакту
+-->
+ </tr>
+ {% endfor %} <!-- Завершення циклу перебору контактів -->
+ </tbody>
+ </table>
 </div>
-{% endif %}
-
-
-<a href="{% url 'add_contact' %}">Add a New Contact</a>
+{% endblock %} <!-- Завершення блоку контенту -->

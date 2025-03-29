@@ -2,12 +2,15 @@ from django.shortcuts import render, redirect
 from .models import Contact
 from .forms import ContactsForms
 
-def index(request):
-    return render(request, 'index.html')  # Рендерит твой index.html
+# ////////////////////
+# def index(request):
+#     return render(request, 'index.html')  # Рендерит твой index.html
+#
+# def contact_list(request):
+#     contacts = Contact.objects.all()
+#     return render(request, 'contact_list.html', {'contact': contacts})
+# ///////////
 
-def contact_list(request):
-    contacts = Contact.objects.all()
-    return render(request, 'contact_list.html', {'contact': contacts})
 
 # def add_contactt(request):
 #     if request.method == "Post":
@@ -20,26 +23,26 @@ def contact_list(request):
 #         form = ContactsForms()
 #         return render(request, 'contact_form.html', {'form': form})
 
-
-def new_contact(request):
-    if request.method == "POST":
-        first_name = request.POST["name"]
-        last_name = request.POST["last_name"]
-        phone_number = request.POST["phone"]
-        email = request.POST["email"]
-
-        # Сохраняем новый контакт
-        contact = Contact(first_name=first_name, last_name=last_name, phone_number=phone_number, email=email)
-        contact.save()
-
-        # Редирект на главную страницу после сохранения
-        return redirect('home')  # Или 'base', если используешь base
-
-    return render(request, 'new_contact.html')
-
-def base(request):
-    return render(request, 'base.html')
-
+# ////////////////
+# def new_contact(request):
+#     if request.method == "POST":
+#         first_name = request.POST["name"]
+#         last_name = request.POST["last_name"]
+#         phone_number = request.POST["phone"]
+#         email = request.POST["email"]
+#
+#         # Сохраняем новый контакт
+#         contact = Contact(first_name=first_name, last_name=last_name, phone_number=phone_number, email=email)
+#         contact.save()
+#
+#         # Редирект на главную страницу после сохранения
+#         return redirect('home')  # Или 'base', если используешь base
+#
+#     return render(request, 'new_contact.html')
+#
+# def base(request):
+#     return render(request, 'base.html')
+# ///////////////
 
 
 # def add_contact(request):
@@ -68,19 +71,29 @@ def base(request):
 def add_contact(request):
     if request.method == "POST":
         # Получаем данные из формы
-        first_name = request.POST.get('first_name')
-        last_name = request.POST.get('last_name')
-        phone_number = request.POST.get('phone_number')
-        email = request.POST.get('email')
+        # first_name = request.POST.get('first_name')
+        # last_name = request.POST.get('last_name')
+        # phone_number = request.POST.get('phone_number')
+        # email = request.POST.get('email')
 
-        # Создаем новый контакт и сохраняем в базу
-        contact = Contact(first_name=first_name, last_name=last_name, phone_number=phone_number, email=email)
-        contact.save()
+    #     # Создаем новый контакт и сохраняем в базу
+    #     contact = Contact(first_name=first_name, last_name=last_name, phone_number=phone_number, email=email)
+    #     contact.save()
+    #
+    #     # Редирект на список контактов после добавления
+    #     return render(request, 'contact_list.html', {'contacts': Contact.objects.all()})
+    #
+    # return render(request, 'contact_form.html')  # Если GET-запрос, показываем форму для добавления
+        form = ContactsForm(request.POST, request.FILES)  # Створюємо форму
 
-        # Редирект на список контактов после добавления
-        return render(request, 'contact_list.html', {'contacts': Contact.objects.all()})
+        if form.is_valid():  # Перевіряємо, чи форма заповнена коректно
+            form.save()  # Зберігаємо новий контакт у базу даних
+            return redirect('contact_list')  # Перенаправляємо користувача на
 
-    return render(request, 'contact_form.html')  # Если GET-запрос, показываем форму для добавления
+    else:  # Якщо запит не POST (користувач просто відкрив сторінку)
+        form = ContactsForm()  # Створюємо порожню форму
+        return render(request, 'contact_form.html', {'form': form})  #
+
 
 
 def contact_list(request):

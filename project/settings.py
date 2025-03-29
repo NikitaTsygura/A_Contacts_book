@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'app',
+    'django_bootstrap5'
 ]
 
 MIDDLEWARE = [
@@ -118,6 +119,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = 'app/static/'
+STATICFILES_DIRS = [
+ os.path.join(BASE_DIR, 'app/static')
+]# Вказуємо директорію
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "../app/media")]  # Это путь к папке static
 
 MEDIA_URL = 'app/media/'
