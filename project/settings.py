@@ -118,13 +118,13 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = 'app/static/'
+STATIC_URL = '/static/'
 STATICFILES_DIRS = [
  os.path.join(BASE_DIR, 'app/static')
 ]# Вказуємо директорію
 # STATICFILES_DIRS = [os.path.join(BASE_DIR, "../app/media")]  # Это путь к папке static
 
-MEDIA_URL = 'app/media/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = [os.path.join(BASE_DIR, "app/media")]
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 

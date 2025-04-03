@@ -20,6 +20,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 10px;
 }
 
 .search-box input {
@@ -88,9 +89,10 @@ body {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-table {
+.button_table {
   width: 100%;
   border-collapse: collapse;
+  align-items: center;
 }
 
 th {
@@ -100,19 +102,28 @@ th {
   text-align: center;
 }
 
-td {
-  padding: 10px;
-  border: 1px solid #ddd;
-  text-align: center;
-}
-
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-tr:hover {
-  background-color: #f1f1f1;
-}
+  table {
+    width: 90%;
+    border-collapse: collapse;
+    margin: 20px auto;
+  }
+  th {
+    background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+  }
+  td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+  }
+  tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  tr:hover {
+    background-color: #f1f1f1;
+  }
 
 
 

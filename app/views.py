@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .models import Contact
 from .forms import ContactsForms
 
@@ -84,14 +84,14 @@ def add_contact(request):
     #     return render(request, 'contact_list.html', {'contacts': Contact.objects.all()})
     #
     # return render(request, 'contact_form.html')  # Если GET-запрос, показываем форму для добавления
-        form = ContactsForm(request.POST, request.FILES)  # Створюємо форму
+        form = ContactsForms(request.POST, request.FILES)  # Створюємо форму
 
         if form.is_valid():  # Перевіряємо, чи форма заповнена коректно
             form.save()  # Зберігаємо новий контакт у базу даних
             return redirect('contact_list')  # Перенаправляємо користувача на
 
     else:  # Якщо запит не POST (користувач просто відкрив сторінку)
-        form = ContactsForm()  # Створюємо порожню форму
+        form = ContactsForms()  # Створюємо порожню форму
         return render(request, 'contact_form.html', {'form': form})  #
 
 
@@ -100,4 +100,19 @@ def contact_list(request):
     # Получаем все контакты из базы данных
     contacts = Contact.objects.all()
 
-    return render(request, 'contact_list.html', {'contacts': contacts})  # Пере
+    return render(request, 'contact_list.html', {'contacts': contacts})
+
+
+
+def edit_contact(request, pk):
+    contact = get_object_or_404(Contact, pk=pk)
+    if request.method == "POST":
+        form = ContactsForms(request.POST, request.FILES, instance=contact)  # Створюємо форму
+
+        if form.is_valid():  # Перевіряємо, чи форма заповнена коректно
+            form.save()  # Зберігаємо новий контакт у базу даних
+            return redirect('contact_list')  # Перенаправляємо користувача на
+
+    else:  # Якщо запит не POST (користувач просто відкрив сторінку)
+        form = ContactsForms(instance=contact)  # Створюємо порожню форму
+    return render(request, 'contact_form.html', {'form': form})  #
