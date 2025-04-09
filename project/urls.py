@@ -25,8 +25,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', views.index, name='base'),# Маршрут для главной страницы
     path('', views.contact_list, name='contact_list'),
-    path("new/", views.add_contact, name="new_contact"),
-    path("edit/<int:pk>/", views.edit_contact, name="edit_contact"),
+    path("new/", views.add_contact, name="add_contact"),
+    path('edit/<int:pk>/', views.edit_contact, name='edit_contact'),
+    path('', views.contact_list, name='contact_list'),
     # path('', views.base, name='home'),  # главная страница
     # path('new_contact/', views.new_contact, name='new_contact'),
     # path('about/<int:contact_id>/', views.about_contact, name='about_contact_detail'),

@@ -81,7 +81,7 @@
  <h2 class="text-center">Contacts</h2>
 
  <div class="button_table">
-    <a href="{% url 'new_contact' %}" class="custom-button">New Contact</a> <!-- Кнопка для створення нового контакту -->
+    <a href="{% url 'add_contact' %}" class="custom-button">New Contact</a> <!-- Кнопка для створення нового контакту -->
     <a href="#" class="custom-button">Edit Contact</a> <!--Кнопка для редагування контакту -->
     <a href="#" class="custom-button">Delete Contact</a> <!--Кнопка для видалення контакту -->
     <a href="#" class="custom-button">About Contact</a> <!-- Кнопка для перегляду інформації про контакт -->
@@ -100,15 +100,25 @@
  </thead>
  <tbody> <!-- Тіло таблиці, де будуть виводитися контакти -->
     {% for contact in contacts %} <!-- Перебирає список контактів, переданий у контекст шаблону -->
-    <tr class="contact-row" data-contact-id="{{ contact.id }}"> <!-- Новий рядок таблиці для кожного контакту -->
+    <tr class="contact-row" data-contact-id="{{ contact.id }}" ondblclick="toggleDetails(this)"> <!-- Новий рядок таблиці для кожного контакту -->
       <td> <!-- Стовпець для фото -->
         <img src="{{ contact.photo.url }}" alt="Contact`s photo" width="50"> <!-- Відображає фото контакту, якщо є -->
       </td>
      <td>{{ contact.last_name }}</td> <!-- Відображає прізвище контакту -->
      <td>{{ contact.first_name }}</td> <!-- Відображає ім'я контакту -->
      <td>{{ contact.phone_number }}</td> <!-- Відображає номер телефону контакту -->
-     <td>{{ contact.email }}</td> <!-- Відображає email контакту -->
+     <td>{{ contact.email }}</td><!-- Відображає email контакту -->
     </tr>
+
+    <tr id="details-{{ contact.id }}" style="display: none;">
+        <td colspan="5">
+            <div>
+                <a href="#">📞Call</a>
+                <a gref="#">📧Write</a>
+            </div>
+        </td>
+    </tr>
+
  {% endfor %} <!-- Завершення циклу перебору контактів -->
  </tbody>
  </table>
