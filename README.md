@@ -39,6 +39,7 @@ You You will see a table whe you will choose the contact, which you can see name
 <hr>
 
 <h2 id="display"> Display Contact (button)</h2>
+Return on main/front page.
 
 <hr>
 
