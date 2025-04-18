@@ -205,3 +205,36 @@ body_design {
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+---------------------------
+.main-container {
+    display: flex;
+    height: 100vh;
+    margin-top: 20px;
+}
+
+.contacts-table {
+    flex: 2;
+    overflow-y: auto;
+}
+
+.action-buttons {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-left: 1px solid #dee2e6;
+}
+
+.action-buttons a {
+    width: 100%;
+}
+
+.center-brand {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 100px;
+}

@@ -1,126 +1,64 @@
 {% extends 'base.html' %}
 
-<!--  <div class="table_contacts">-->
-<!--      <h2 class="text-center"><Contacts/h2>-->
-<!--    <table class="table table-striped">-->
-<!--      <thead>-->
-<!--        <tr>-->
-<!--          <th scope="col">Photo</th>-->
-<!--          <th scope="col">Name</th>-->
-<!--            <th scope="col">LastName</th>-->
-<!--          <th scope="col">Phone number</th>-->
-<!--          <th scope="col">Email</th>-->
-<!--        </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-<!--         for contact in contacts %}-->
-<!--        <tr>-->
-<!--            <td>-->
-<!--                 if contact.photo %}-->
-<!--                <img src=" contact.photo.url }}" alt="Contacts`s photo" width="50">-->
-<!--                 else %}-->
-<!--                <img src="/media/icon.png" alt="photo" width="50">-->
-<!--                 endif %}-->
-<!--            </td>-->
-<!--            <td> contact.last_name }}</td>-->
-<!--            <td> contact.first_name }}</td>-->
-<!--            <td> contact.phone_number }}</td>-->
-<!--            <td> contact.email }}</td>-->
-<!--        </tr>-->
-<!--         endfor %}-->
+{% block title %}Contact's Book List{% endblock %}
 
+{% block content %}
+    <!-- Left section: Contacts Table -->
+    <div class="contacts-table">
+        <h2 class="text-center">Contacts</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">Photo</th>
+                    <th scope="col">Lastname</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Phone</th>
+                    <th scope="col">Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for contact in contacts %}
+<!--                ondblclick="toggleDetails(this)"-->
+                <tr class="contact-row" data-contact-id="{{ contact.id }}" ondblclick="toggleDetails(this)">
+                    <td>
+                        <img src="{{ contact.photo.url }}" alt="Contact`s photo" width="50">
+                    </td>
+                    <td>{{ contact.last_name }}</td>
+                    <td>{{ contact.first_name }}</td>
+                    <td>{{ contact.phone_number }}</td>
+                    <td>{{ contact.email }}</td>
+                </tr>
+<!--                ----------------------------------------- -->
+                <tr id="details-{{ contact.id }}" style="display: none;">
+                    <td colspan="5">
+                        <div>
+                            <a href="#">📞Call</a>
+                            <a href="#">✉️Write</a>
+                        </div>
+                    </td>
+                </tr>
+<!--                ----------------------------------------- -->
+                {% endfor %}
+<!--                <tr>-->
+<!--                    <td>John Doe</td>-->
+<!--                    <td>+123456789</td>-->
+<!--                    <td>johndoe@example.com</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td>Jane Smith</td>-->
+<!--                    <td>+987654321</td>-->
+<!--                    <td>janesmith@example.com</td>-->
+<!--                </tr>-->
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
 
-
-<!--/////////////////////////-->
-<!-- contact_list.html -->
-<!--<h1>Contact List</h1>-->
-
-<!--&lt;!&ndash; if contacts %}&ndash;&gt;-->
-<!--&lt;!&ndash;    <ul>&ndash;&gt;-->
-<!--&lt;!&ndash;        for contact in contacts %}&ndash;&gt;-->
-<!--&lt;!&ndash;            <li> contact.first_name }}  contact.last_name }} -  contact.phone_number }} -  contact.email }}</li>&ndash;&gt;-->
-<!--&lt;!&ndash;        endfor %}&ndash;&gt;-->
-<!--&lt;!&ndash;    </ul>&ndash;&gt;-->
-<!--&lt;!&ndash; else %}&ndash;&gt;-->
-<!--&lt;!&ndash;    <p>No contacts available.</p>&ndash;&gt;-->
-<!--&lt;!&ndash; endif %}&ndash;&gt;-->
-<!--<table>-->
-<!--    <tr>-->
-<!--        <th>Name</th>-->
-<!--        <th>Email</th>-->
-<!--        <th>Phone</th>-->
-<!--    </tr>-->
-<!--     for contact in contacts %}-->
-<!--    <tr>-->
-<!--        <td><a href="{% url 'about_contact_detail' contact.id %}">contact.name }}</a></td>-->
-<!--        <td> contact.email }}</td>-->
-<!--        <td> contact.phone }}</td>-->
-<!--    </tr>-->
-<!--     endfor %}-->
-<!--</table>-->
-
-<!-- if selected_contact %}-->
-<!--<div>-->
-<!--    <h2>Contact Details</h2>-->
-<!--    <p><strong>Name:</strong>  selected_contact.name }}</p>-->
-<!--    <p><strong>Email:</strong>  selected_contact.email }}</p>-->
-<!--    <p><strong>Phone:</strong>  selected_contact.phone }}</p>-->
-<!--</div>-->
-<!-- endif %}-->
-
-
-<!--<a href=" url 'add_contact' }">Add a New Contact</a>-->
-<!--////////////////////////////-->
-
-
-
-{% block title %}Add/Change Contact's Book{% endblock %} <!-- Визначає заголовок сторінки, який замінить відповідний блок у base.html -->
-{% block content %} <!-- Початок блоку контенту, який буде вставлений у відповідне місце базового шаблону -->
-<!-- Ліва секція: Таблиця контактів -->
-<div class="contacts-table"> <!-- Контейнер для відображення таблиці контактів -->
- <h2 class="text-center">Contacts</h2>
-
- <div class="button_table">
-    <a href="{% url 'add_contact' %}" class="custom-button">New Contact</a> <!-- Кнопка для створення нового контакту -->
-    <a href="#" class="custom-button">Edit Contact</a> <!--Кнопка для редагування контакту -->
-    <a href="#" class="custom-button">Delete Contact</a> <!--Кнопка для видалення контакту -->
-    <a href="#" class="custom-button">About Contact</a> <!-- Кнопка для перегляду інформації про контакт -->
-    <a href="#" class="custom-button">Display</a> <!-- Кнопка для відображення контактів -->
- </div>
-
- <table class="table table-striped"> <!-- Таблиця з класами Bootstrap (table-striped додає чергування кольорів рядків) -->
- <thead> <!-- Заголовок таблиці -->
- <tr> <!-- Рядок заголовків стовпців -->
-  <th scope="col">Photo</th> <!-- Заголовок стовпця для фото -->
-  <th scope="col">Lastname</th> <!-- Заголовок стовпця для прізвища -->
-  <th scope="col">Name</th> <!-- Заголовок стовпця для імені -->
-  <th scope="col">Phone</th> <!-- Заголовок стовпця для телефону -->
-  <th scope="col">Email</th> <!-- Заголовок стовпця для електронної пошти -->
- </tr>
- </thead>
- <tbody> <!-- Тіло таблиці, де будуть виводитися контакти -->
-    {% for contact in contacts %} <!-- Перебирає список контактів, переданий у контекст шаблону -->
-    <tr class="contact-row" data-contact-id="{{ contact.id }}" ondblclick="toggleDetails(this)"> <!-- Новий рядок таблиці для кожного контакту -->
-      <td> <!-- Стовпець для фото -->
-        <img src="{{ contact.photo.url }}" alt="Contact`s photo" width="50"> <!-- Відображає фото контакту, якщо є -->
-      </td>
-     <td>{{ contact.last_name }}</td> <!-- Відображає прізвище контакту -->
-     <td>{{ contact.first_name }}</td> <!-- Відображає ім'я контакту -->
-     <td>{{ contact.phone_number }}</td> <!-- Відображає номер телефону контакту -->
-     <td>{{ contact.email }}</td><!-- Відображає email контакту -->
-    </tr>
-
-    <tr id="details-{{ contact.id }}" style="display: none;">
-        <td colspan="5">
-            <div>
-                <a href="#">📞Call</a>
-                <a gref="#">📧Write</a>
-            </div>
-        </td>
-    </tr>
-
- {% endfor %} <!-- Завершення циклу перебору контактів -->
- </tbody>
- </table>
-</div>
-{% endblock %} <!-- Завершення блоку контенту -->
+    <!-- Right section: Action Buttons -->
+    <div class="action-buttons">
+        <a href="{% url 'add_contact' %}" class="btn btn-primary">New Contact</a>
+        <a href="#" class="btn btn-secondary" id="editButton">Edit Contact</a>
+        <a href="#" class="btn btn-danger" id="deleteButton">Delete Contact</a>
+        <a href="#" class="btn btn-info" id="aboutButton">About Contact</a>
+    </div>
+{% endblock %}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load django_bootstrap5 %}
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Contact's Book{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% bootstrap_css %}
+</head>
+<style>
+
+  body {
+    margin-top: 0;
+    padding-top: 0;
+  }
+  .contact-container {
+    display: flex;
+    align-items: flex-start;
+    margin: 20px;
+    gap: 20px;
+  }
+
+  .contact-photo {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+  }
+
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    font-size: 20px; /* размер текста больше */
+    gap: 10px;
+  }
+
+  .contact-info div {
+    font-weight: 500;
+  }
+
+  .navbar {
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+</style>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand center-brand fs-2" href="{% url 'contact_list' %}">Contact's Book</a>
+<!--        <a href="#" class="btn btn-success">Display</a>-->
+    </nav>
+
+    <div class="container-fluid main-container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <script src="{% static 'js/main.js' %}"></script>
+
+  <div class="contact-container" ondblclick="toggleDetails(this)" data-contact-id="{{ contact.id }}">
+    <img src="{{ contact.photo.url }}" alt="Contact's photo" class="contact-photo">
+
+    <div class="contact-info">
+      <div>Last name: {{ contact.last_name }}</div>
+      <div>Name: {{ contact.first_name }}</div>
+      <div>Phone number: {{ contact.phone_number }}</div>
+      <div>Email: {{ contact.email }}</div>
+    </div>
+  </div>
+</body>
+
+</html>

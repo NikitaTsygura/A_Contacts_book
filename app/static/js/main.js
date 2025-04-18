@@ -1,16 +1,16 @@
 //app/static/js/main.js
 document.addEventListener("DOMContentLoaded", function() {
 
-//  window.toggleDetails = function(row) {
-//    const contactId = row.dataset.contactId;
-//    const detailsRow = document.getElementById('details-' + contactId);
-//
-//    if (detailsRow.style.display === 'none') {
-//        detailsRow.style.display === 'table-row';
-//    } else {
-//        detailsRow.style.display === 'none';
-//    }
-//  }
+  window.toggleDetails = function(row) {
+    const contactId = row.dataset.contactId;
+    const detailsRow = document.getElementById('details-' + contactId);
+
+    if (detailsRow.style.display === 'none') {
+        detailsRow.style.display = 'table-row';
+    } else {
+        detailsRow.style.display = 'none';
+    }
+  }
 
 
   let selectedRow = null;
@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
   const rows = document.querySelectorAll(".contact-row");
   const editButton = document.getElementById("editButton");
+  const deleteButton = document.getElementById("deleteButton");
+  const aboutButton = document.getElementById("aboutButton");
+
 
   rows.forEach(row => {
     row.addEventListener("click", function() {
@@ -30,5 +33,26 @@ document.addEventListener("DOMContentLoaded", function() {
       selectedContactId = this.dataset.contactId;
 
       editButton.href = `edit/${selectedContactId}/`
+      deleteButton.href = `delete/${selectedContactId}/`
+      aboutButton.href = `about/${selectedContactId}/`
 
     });
+
+//    row.addEventListener("dblclick", function() {
+//        const contactId = row.dataset.contactId;
+//        const detailsRow = document.getElementById('details-' + contactId);
+//
+//        if (detailsRow.style.display === 'none') {
+//            detailsRow.style.display = 'table-row';
+//        } else {
+//            detailsRow.style.display = 'none';
+//        }
+//    }
+//    });
+
+  });
+
+
+
+
+});

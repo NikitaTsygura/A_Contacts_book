@@ -16,21 +16,18 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from app import views  # Импортируй views из твоего приложения "app"
+from app import views
 from django.conf import settings
 from django.conf.urls.static import static
-#from . import views
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('', views.index, name='base'),# Маршрут для главной страницы
     path('', views.contact_list, name='contact_list'),
-    path("new/", views.add_contact, name="add_contact"),
+    path('add/', views.add_contact, name='add_contact'),
     path('edit/<int:pk>/', views.edit_contact, name='edit_contact'),
-    path('', views.contact_list, name='contact_list'),
-    # path('', views.base, name='home'),  # главная страница
-    # path('new_contact/', views.new_contact, name='new_contact'),
-    # path('about/<int:contact_id>/', views.about_contact, name='about_contact_detail'),
+    path('delete/<int:pk>/', views.delete_contact, name='delete_contact'),
+    path('about/<int:pk>/', views.about_contact, name='about_contact'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
